@@ -3,22 +3,24 @@ Port Scanner with Python
 Ali Karahisar
 Created Date: 19/01/2021
 """
-import pyfiglet
+from pyfiglet import Figlet
 import sys
 import socket
 from datetime import datetime
 from colorama import Fore
 
+f= Figlet(font='poison')
 
-header = pyfiglet.figlet_format("Port Scanner")
+header = f.renderText("PScan")
 print(Fore.LIGHTRED_EX + header)
-targetIp = input('Enter the host to be scanned: ')
+
+targetIp = input('❓ Enter the host to be scanned: ')
 targetIp = socket.gethostbyname(targetIp)
 startTime = datetime.now()
 print(Fore.CYAN)
 print("-" * 60)
-print("Scanning Target: " + targetIp)
-print("Scanning started at: " + str(startTime))
+print("🎯️ Scanning Target: " + targetIp)
+print("⏳ Scanning started at: " + str(startTime))
 print("-" * 60)
 
 def runScan():
@@ -30,18 +32,18 @@ def runScan():
             socket.setdefaulttimeout(1)
             serv.bind((targetIp, port))
         except:
-            print('[Open Port] :', port)
+            print('⚠️ [Open Port] :', port,'\n')
             open_port_counter = open_port_counter + 1
         serv.close()
     scan_finish_time = datetime.now()
     print(Fore.LIGHTGREEN_EX+"\n")
     print("-" * 60)
-    print("Scanning Target: " + targetIp)
-    print("Scanning started at: " + str(startTime))
-    print("Scanning finished at: " + str(scan_finish_time))
+    print("🎯️ Scanning Target: " + targetIp)
+    print("⏳ Scanning started at: " + str(startTime))
+    print("⌛️ Scanning finished at: " + str(scan_finish_time))
     completion_time = scan_finish_time - startTime
-    print("Scan Completion Time: " + str(completion_time))
-    print(Fore.LIGHTRED_EX+"Total Open Ports: " + str(open_port_counter))
+    print("🏁 Scan Completion Time: " + str(completion_time))
+    print(Fore.LIGHTRED_EX+"⚠️ Total Open Ports: " + str(open_port_counter))
     print(Fore.LIGHTGREEN_EX+"-" * 60)
 
 try:
