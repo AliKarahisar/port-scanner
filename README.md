@@ -10,4 +10,8 @@ You can run it from the terminal.
 python3 /your/file/directory/main.py
 ```
 
+##Specifications
+1. Open ports are saved in txt file
+2. IP or domain can be written to scan open ports
+
 ![screenshot](ss.png)
