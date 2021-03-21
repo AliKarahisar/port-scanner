@@ -3,6 +3,7 @@ Port Scanner with Python
 Ali Karahisar
 Created Date: 19/01/2021
 First Update: 04/02/2021
+Second Update: 21/03/2021
 """
 from pyfiglet import Figlet
 import sys
