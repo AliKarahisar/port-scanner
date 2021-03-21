@@ -12,26 +12,24 @@ from datetime import datetime
 from colorama import Fore
 import os
 
+
+
 openPortsArray=[]
 
 def addForWrite(portNumber):
     openPortsArray.append(portNumber)
 
-def osFilePath(os,filePath,fileName):
-    if(os=="nt"):
-        filePath = filePath+"\\"+fileName
-    else:
-        filePath=filePath+"/"+fileName
-    return filePath
+def osFilePath(filePath,fileName):
+        filePath = filePath+str(os.sep)+fileName
+        return filePath
 
 def savePortTxt(ip):
-    opSystem=os.name
     filePath = os.getcwd()
     fileName= "openPorts-"+str(ip)+"-"+ str(datetime.now())+".txt"
     with open(fileName, "w") as txt_file:
         for row in openPortsArray:
             txt_file.write(str(row)+'\n')
-    filePath = osFilePath(opSystem,filePath,fileName)
+    filePath = osFilePath(filePath,fileName)
     print("📝 Open Port(s) .txt file saved - " + str(filePath))
 
 def runScan():

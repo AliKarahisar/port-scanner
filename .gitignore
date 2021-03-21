@@ -1,4 +1,4 @@
 /port-scanner
-/.idea
+/.idea/
 .gitignore
 openPorts.txt
