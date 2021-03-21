@@ -12,15 +12,13 @@ from datetime import datetime
 from colorama import Fore
 import os
 
-
-
 openPortsArray=[]
 
 def addForWrite(portNumber):
     openPortsArray.append(portNumber)
 
 def osFilePath(filePath,fileName):
-        filePath = filePath+str(os.sep)+fileName
+        filePath = filePath+os.sep+fileName
         return filePath
 
 def savePortTxt(ip):
@@ -59,7 +57,7 @@ header = f.renderText("PScan")
 print(Fore.LIGHTRED_EX + header)
 
 targetIp = input('❓ Enter the host to be scanned: ')
-forTextFile = targetIp;
+forTextFile = targetIp
 targetIp = socket.gethostbyname(targetIp)
 startTime = datetime.now()
 
@@ -72,7 +70,6 @@ print("-" * 60)
 try:
     runScan()
     savePortTxt(forTextFile)
-
 
 except KeyboardInterrupt:
     print("\n Scan canceled")
